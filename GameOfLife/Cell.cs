@@ -2,13 +2,15 @@
 {
     public class Cell
     {
-        private bool _isAlive { get; set; }
-        private bool _nextState { get; set; }
+        private bool _isAlive 
+        public bool isAlive { get; set; }
+        private bool _nextState 
+        public bool nextState { get; set; }
 
 
         public bool Cell(bool state)
         {
-            return state;
+            _isAlive()
         }
 
         public void ComeAlive()
