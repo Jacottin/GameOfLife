@@ -1,10 +1,13 @@
-﻿namespace GameOfLife
+﻿using System;
+
+namespace GameOfLife
 {
-    internal class Program
+    static class Program
     {
         public static void Main(string[] args)
         {
-            
+            Game game = new Game(4, 10);
+            game.RunGameConsole();
         }
     }
 }
