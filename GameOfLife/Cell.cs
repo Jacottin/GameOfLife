@@ -2,41 +2,27 @@
 {
     public class Cell
     {
-        private bool _isAlive;
+        public bool IsAlive { get; private set; }
         private bool _nextState;
-        
-        public bool isAlive
-        {
-            get { return _isAlive; }
-            set { _isAlive = value; }
-        }
 
-        public bool nextState
+        public Cell(bool state)
         {
-            get { return _nextState; }
-            set { _nextState = value; }
-        }
-
-
-        public bool Cell(bool state)
-        {
-            isAlive = false;
-            return state;
+            IsAlive = state;
         }
 
         public void ComeAlive()
         {
-            nextState = true;
+            _nextState = true;
         }
 
         public void PassAway()
         {
-            nextState = false;
+            _nextState = false;
         }
 
         public void Update()
         {
-            isAlive = nextState;
+            IsAlive = _nextState;
         }
     }
 }

@@ -1,22 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace GameOfLife
 {
     public class Game
     {
-        private int _n;
-        private int _iter;
-        public Grid grid;
-        private readonly List<Coords> AliveCellsCoords;
+        public int GridSize;//taille de la grille
+        public int _nbIteration;//nombre d'itération de la simulation
+        public List<Coords> _aliveCellsCoords;
 
-        public Game(int nbCells, int nbIterations)
+        public Grid grid;
+		
+        public Game(int gridSize, int nbIteration, List<Coords> aliveCellsCoords)
         {
-            
+            GridSize = gridSize;
+            _nbIteration = nbIteration;
+            _aliveCellsCoords = aliveCellsCoords;
+
+            grid = new Grid(gridSize, aliveCellsCoords);
         }
 
         public void RunGameConsole()
         {
-            
+            grid.DisplayGrid();
+            for (int i = 0; i < _nbIteration; i++)
+            {
+                grid.UpdateGrid();
+                Console.Clear();
+                grid.DisplayGrid();
+                Thread.Sleep(500);
+            }
         }
     }
 }

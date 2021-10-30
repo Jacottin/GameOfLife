@@ -2,17 +2,20 @@
 {
     public struct Coords
     {
-        private int _x { get; set; }
-        private int _y { get; set; }
+        
+            public int _x { get; }
+            public int _y { get; }
 
-        public Coords(int X, int Y)
-        {
-            _x = 0;
-            _y = 0;
-        }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+            public Coords(int x, int y)
+            {
+                _x = x;
+                _y = y;
+            }
+
+            public override string ToString()
+            {
+                return $"({_x};{_y})";
+            }
+        
     }
 }
