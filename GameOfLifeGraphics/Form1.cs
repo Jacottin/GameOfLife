@@ -10,13 +10,13 @@ namespace GameOfLifeGraphics
         public int n;
         public Form1()
         {
-            n = 50;
+            n = 55;
             InitializeComponent();
             pictureBox1.Size = new Size(5*n, 5*n);
             ClientSize = new Size(5*n, 5*n);
             game = new Game(n);
             Timer MyTimer = new Timer();
-            MyTimer.Interval = (100);
+            MyTimer.Interval = (20);
             MyTimer.Tick += new EventHandler(MyTimer_Tick);
             pictureBox1.Paint += new PaintEventHandler(pictureBox1_Paint);
             MyTimer.Start();
